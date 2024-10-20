@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Taller Json Placeholder</title>
+</head>
+<body style="color:rgba(0, 0, 0, 0.575); background-color: #1d2630">
+    <head>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </head>
+    <main>
+        <section class="post-section">
+            <div class="container-cards ">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mt-3 ">
+                        <div class="card p-2" style="width: 18rem; height:25rem" >
+                            <div id="card-get" class="card-body">
+                                <div class="input-field col s12">
+                                    <input placeholder="ID del recurso GET PHOTO" id="idGetPhoto" type="text" class="validate">
+                                    <label for=""></label>
+                                    <div class="button-crear d-flex justify-content-center mt-5">  
+                                        <input  class="btn btn-primary" onclick="getPhoto()" type="submit" value="Traer Registro">     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3">
+                        <div class="card p-3" style="width: 18rem; height:25rem" >
+                            <div id="card-crear" class="card-body">
+                                <div class="row">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div class="row">
+                                                <div>
+                                                    <h3 class="text-center">Crear Registro</h3>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <input placeholder="Title" id="title" type="text" class="validate">
+                                                    <label for="title"></label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-5">
+                                                <div class="input-field col s12 mb-3">
+                                                    <input placeholder="Body" id="body"  type="text" class="validate">
+                                                    <label for="Body"></label>
+                                                </div>
+                                            </div>
+                                            <div class="button-crear d-flex justify-content-center">  
+                                                <input  class="btn btn-success" onclick="crearRegistro()" type="submit" value="Crear Registro">     
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>      
+            </div>           
+        </section>
+
+        <section class="section-card-edit">
+            <div class="container-cards">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-4 mt-3">
+                        <div class="card" style="width: 18rem; height:24rem ">
+                            <div id="card-edit" class="card-body">
+                                <div class="row">
+                                    <form class="col s12">
+                                        <div class="row">
+                                            <div>
+                                                <h3 class="text-center">Editar Registro</h3>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input placeholder="ID" id="ID" type="text" class="validate">
+                                                <label for="ID"></label>
+                                            </div>
+                                            <div class="input-field col s6">
+                                                <input placeholder="Title" id="editTitle" type="text" class="validate">
+                                                <label for="title"></label>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-5">
+                                            <div class="input-field col s12">
+                                                <input placeholder="Body" id="editBody" type="text" class="validate">
+                                                <label for="Body"></label>
+                                            </div>
+                                        </div>
+                                        <div class="button-edit d-flex justify-content-center">
+                                            <input class="btn btn-secondary" onclick="editarRegistro()" type="submit" value="Editar Registro">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mt-3">
+                        <div class="card p-2" style="width: 18rem; height:24rem">
+                            <div id="card-edit-put" class="card-body">
+                                <h3>Contenido Editado</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <div class="container-table p-5">
+                <table class="table table-dark table-striped mt-5">
+                    <thead>
+                        <tr class="text-center">
+                          <th scope="col">ID</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Body</th>
+                          <th scope="col" colspan="2">Accion</th>
+                        </tr>
+                      </thead>
+                      <tbody id="table">
+
+                      </tbody>
+                </table>
+            </div>
+        </section>
+    </main>|
+    <script src="assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
